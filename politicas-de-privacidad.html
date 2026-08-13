@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAPIX | Políticas de Privacidad, Cookies y Términos Legales</title>
+    <meta name="description" content="Políticas de privacidad, aviso de cookies, términos y condiciones, y derechos ARCO de DAPIX. Protegemos tus datos conforme a la Ley 1581 de 2012.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           MISMOS ESTILOS QUE EL INDEX.HTML (para que sea idéntico visualmente)
+           ========================================================================== */
+        :root {
+            --bg-principal: #0B1220;
+            --bg-secundario: #111827;
+            --bg-terciario: #1F2937;
+            --color-primary: #0EA5E9;
+            --color-accent: #06B6D4;
+            --texto-principal: #FFFFFF;
+            --texto-mutado: #9CA3AF;
+            --font-main: 'Inter', sans-serif;
+            --transicion-suave: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --borde-futurista: rgba(255, 255, 255, 0.08);
+            --gradient-tech: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-principal); color: var(--texto-principal); }
+        body { font-family: var(--font-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 100px 0; }
+        .tagline { display: inline-block; padding: 6px 16px; border-radius: 99px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); color: var(--color-primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+        .section-title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.2; text-align: center; }
+        .section-title span { background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        a { text-decoration: none; color: inherit; transition: var(--transicion-suave); }
+        ul { list-style: none; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-weight: 600; font-size: 0.95rem; border-radius: 8px; border: none; cursor: pointer; transition: var(--transicion-suave); gap: 10px; }
+        .btn-primary { background: var(--gradient-tech); color: #FFF; box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--texto-principal); border: 1px solid var(--borde-futurista); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+
+        /* HEADER IDÉNTICO AL INDEX */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; transition: var(--transicion-suave); border-bottom: 1px solid transparent; background: rgba(11, 18, 32, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--borde-futurista); }
+        .nav-wrapper { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(14, 165, 233, 0.4); }
+        .logo span { color: var(--color-primary); }
+        .nav-menu { display: flex; gap: 32px; align-items: center; }
+        .nav-link { font-size: 0.9rem; font-weight: 500; color: var(--texto-mutado); }
+        .nav-link:hover { color: var(--texto-principal); }
+        .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .menu-toggle span { width: 25px; height: 2px; background: var(--texto-principal); transition: var(--transicion-suave); }
+
+        /* CONTENIDO LEGAL MEJORADO */
+        .legal-container {
+            max-width: 1000px;
+            margin: 120px auto 60px;
+            background: var(--bg-terciario);
+            border-radius: 20px;
+            border: 1px solid var(--borde-futurista);
+            overflow: hidden;
+        }
+        .legal-header {
+            background: var(--bg-secundario);
+            padding: 40px 48px 24px;
+            border-bottom: 1px solid var(--borde-futurista);
+        }
+        .legal-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+        .legal-header .fecha-act {
+            color: var(--texto-mutado);
+            font-size: 0.9rem;
+        }
+        .legal-body {
+            padding: 48px;
+        }
+        .legal-body h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--borde-futurista);
+        }
+        .legal-body h2:first-of-type {
+            margin-top: 0;
+        }
+        .legal-body h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin: 24px 0 12px 0;
+        }
+        .legal-body p {
+            color: var(--texto-mutado);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .legal-body ul {
+            list-style: disc;
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+        .legal-body li {
+            color: var(--texto-mutado);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .legal-body strong {
+            color: var(--texto-principal);
+        }
+        .legal-body .highlight-box {
+            background: rgba(14, 165, 233, 0.08);
+            border-left: 3px solid var(--color-primary);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        .legal-body .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* FOOTER IDÉNTICO AL INDEX */
+        footer { background: #060B13; padding: 60px 0 30px 0; border-top: 1px solid var(--borde-futurista); font-size: 0.9rem; color: var(--texto-mutado); margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-brand h4 { font-size: 1.4rem; font-weight: 800; color: #FFF; margin-bottom: 16px; }
+        .footer-links h5 { color: #FFF; font-weight: 600; margin-bottom: 16px; font-size: 0.95rem; }
+        .footer-links ul { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a:hover { color: #FFF; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+        @media (max-width: 968px) {
+            .section-title { font-size: 2rem; }
+            .menu-toggle { display: flex; }
+            .nav-menu { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-principal); padding: 30px; flex-direction: column; gap: 20px; border-bottom: 1px solid var(--borde-futurista); display: none; }
+            .nav-menu.open { display: flex; }
+            .legal-header, .legal-body { padding: 24px; }
+            .legal-header h1 { font-size: 1.8rem; }
+            .legal-body h2 { font-size: 1.3rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <img src="foto perfil.png" alt="Logo Oficial DAPIX"> DAPIX<span>.</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="index.html#beneficios" class="nav-link">Beneficios</a></li>
+                <li><a href="index.html#proceso" class="nav-link">Proceso</a></li>
+                <li><a href="index.html#casos" class="nav-link">Casos de Uso</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html#contacto" class="btn btn-secondary" style="padding: 10px 20px;">Soporte</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-container">
+            <div class="legal-header">
+                <h1>Políticas de Privacidad, Cookies y Términos Legales</h1>
+                <p class="fecha-act">📅 Última actualización: 15 de junio de 2026 | Entrada en vigor inmediata</p>
+            </div>
+            <div class="legal-body">
+                <p>En <strong>DAPIX</strong> (en adelante, "la Empresa", "nosotros", "nuestro" o "DAPIX"), identificado con razón social <strong>Duber Arcenio Pineda Ramirez</strong>, nos comprometemos a proteger y respetar tu privacidad. El presente documento establece las bases sobre las cuales tratamos cualquier dato personal que nos proporciones a través de nuestro sitio web <strong>https://dapix.site.je</strong>, formularios de contacto, canales de mensajería (WhatsApp, Telegram, Instagram, Facebook) y agentes de inteligencia artificial.</p>
+                
+                <div class="highlight-box">
+                    <p>⚡ <strong>Resumen ejecutivo:</strong> Solo recopilamos datos necesarios para brindarte asesoría y servicios de automatización. No vendemos tu información. Puedes ejercer tus derechos ARCO en cualquier momento escribiendo a <strong>privacidad@dapix.site.je</strong>. Esta política cumple con la <strong>Ley 1581 de 2012</strong> y el <strong>Decreto 1377 de 2013</strong> de Colombia, así como con los estándares internacionales GDPR (aplicable a usuarios europeos).</p>
+                </div>
+
+                <h2>1. Información que Recopilamos</h2>
+                <p>Podemos recoger y tratar los siguientes datos personales:</p>
+                <ul>
+                    <li><strong>Datos identificativos:</strong> Nombre completo, cargo, nombre de la empresa, número de identificación tributaria (opcional).</li>
+                    <li><strong>Datos de contacto:</strong> Dirección de correo electrónico corporativo, número de teléfono fijo o móvil.</li>
+                    <li><strong>Datos de navegación:</strong> Dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia, origen geográfico (mediante cookies y tecnologías similares).</li>
+                    <li><strong>Datos de interacción:</strong> Conversaciones mantenidas con nuestros agentes de IA (chat en vivo), consultas realizadas a través de WhatsApp Business API, respuestas a encuestas de satisfacción.</li>
+                    <li><strong>Datos contractuales:</strong> Historial de servicios contratados, facturación, medios de pago (en caso de adquisición de automatizaciones).</li>
+                </ul>
+                <p>En ningún caso recopilamos datos sensibles como origen racial, creencias religiosas, afiliación sindical, datos genéticos o biométricos sin tu consentimiento explícito adicional.</p>
+
+                <h2>2. Finalidades del Tratamiento de Datos</h2>
+                <p>Tus datos serán utilizados exclusivamente para las siguientes finalidades:</p>
+                <ul>
+                    <li>✅ Responder a tus solicitudes de información, cotizaciones o consultas técnicas sobre agentes IA y automatizaciones.</li>
+                    <li>✅ Gestionar la relación precontractual, contractual y postcontractual con clientes y prospectos.</li>
+                    <li>✅ Enviar comunicaciones comerciales y boletines informativos solo si has dado tu consentimiento expreso (nunca enviaremos spam).</li>
+                    <li>✅ Mejorar la experiencia de usuario, analizar tendencias y optimizar nuestro sitio web mediante datos agregados anonimizados.</li>
+                    <li>✅ Cumplir con obligaciones legales (facturación, prevención de fraude, requerimientos judiciales).</li>
+                    <li>✅ Personalizar la interacción con nuestros agentes de IA para ofrecer respuestas más precisas basadas en tu historial.</li>
+                </ul>
+
+                <h2>3. Uso de Cookies y Tecnologías de Seguimiento</h2>
+                <p>Este sitio web utiliza cookies propias y de terceros para garantizar su correcto funcionamiento, analizar el tráfico y ofrecer una experiencia personalizada. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo al navegar.</p>
+                
+                <h3>3.1 Tipos de cookies que utilizamos</h3>
+                <ul>
+                    <li><strong>Cookies técnicas (necesarias):</strong> Permiten la navegación básica, la gestión del chat y el acceso a áreas seguras. No requieren consentimiento.</li>
+                    <li><strong>Cookies de análisis (estadísticas):</strong> Nos ayudan a medir y analizar el comportamiento de los usuarios (Google Analytics, Microsoft Clarity). Los datos son agregados y anónimos.</li>
+                    <li><strong>Cookies de preferencias (funcionalidad):</strong> Recuerdan tus ajustes (como idioma o región) para ofrecerte una experiencia más eficiente.</li>
+                    <li><strong>Cookies de marketing (publicitarias):</strong> Utilizadas para mostrarte contenido relevante en redes sociales (Meta Pixel, LinkedIn Insight Tag). Solo se activan con tu autorización explícita.</li>
+                </ul>
+                
+                <h3>3.2 Gestión de cookies</h3>
+                <p>Al acceder por primera vez a nuestro sitio, mostramos un banner de cookies donde puedes aceptar todas, rechazar las no esenciales o configurar tus preferencias. También puedes gestionar o bloquear las cookies desde la configuración de tu navegador. Ten en cuenta que deshabilitar cookies técnicas puede afectar el funcionamiento del sitio.</p>
+                
+                <h3>3.3 Cookies de terceros</h3>
+                <p>Algunas cookies son establecidas por servicios externos que utilizamos:</p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> Recopila información anónima sobre navegación. <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--color-accent);">Política de privacidad de Google</a></li>
+                    <li><strong>Meta Platforms (Facebook/Instagram):</strong> Cookies para medir la efectividad de anuncios. <a href="https://www.facebook.com/privacy/policy/" target="_blank" style="color: var(--color-accent);">Política de Meta</a></li>
+                </ul>
+
+                <h2>4. Base Legal para el Tratamiento</h2>
+                <p>El tratamiento de tus datos personales se fundamenta en las siguientes bases jurídicas:</p>
+                <ul>
+                    <li><strong>Consentimiento explícito:</strong> Cuando marcas casillas de aceptación, diligencias formularios o aceptas cookies.</li>
+                    <li><strong>Ejecución de un contrato:</strong> Cuando tratamos datos necesarios para prestarte los servicios de automatización contratados.</li>
+                    <li><strong>Interés legítimo:</strong> Para mejorar nuestros servicios, prevenir fraudes y garantizar la seguridad de la plataforma.</li>
+                    <li><strong>Cumplimiento legal:</strong> Para atender obligaciones fiscales, contables o requerimientos de autoridades colombianas.</li>
+                </ul>
+
+                <h2>5. Plazos de Conservación de Datos</h2>
+                <p>Conservaremos tus datos personales durante el tiempo necesario para cumplir con las finalidades descritas en esta política, y posteriormente durante los plazos de prescripción de responsabilidades legales (generalmente 5 años para obligaciones comerciales y 10 años para fines fiscales en Colombia). Una vez cumplidos dichos plazos, los datos serán anonimizados o eliminados de forma segura.</p>
+
+                <h2>6. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
+                <p>Como titular de datos personales, tienes los siguientes derechos reconocidos por la Ley 1581 de 2012:</p>
+                <ul>
+                    <li><strong>Acceso:</strong> Conocer qué datos tenemos sobre ti y cómo los utilizamos.</li>
+                    <li><strong>Rectificación:</strong> Corregir datos inexactos, incompletos o desactualizados.</li>
+                    <li><strong>Cancelación (supresión):</strong> Solicitar la eliminación de tus datos cuando ya no sean necesarios para las finalidades que justificaron su recogida.</li>
+                    <li><strong>Oposición:</strong> Negarte al tratamiento de tus datos para fines específicos (como marketing directo).</li>
+                    <li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado y transmitirlos a otro responsable (aplica para entornos digitales).</li>
+                </ul>
+                <p>Para ejercer cualquiera de estos derechos, envía un correo electrónico a <strong>privacidad@dapix.site.je</strong> con el asunto "Solicitud ARCO" e incluye una copia de tu documento de identidad. Responderemos en un plazo máximo de <strong>15 días hábiles</strong> conforme a la ley.</p>
+
+                <h2>7. Seguridad de la Información</h2>
+                <p>Hemos implementado medidas técnicas y organizativas apropiadas para garantizar la seguridad de tus datos personales, incluyendo:</p>
+                <ul>
+                    <li>🔒 Cifrado SSL/TLS en todas las transmisiones de datos (protocolo HTTPS).</li>
+                    <li>🔒 Firewalls de última generación y sistemas de detección de intrusiones.</li>
+                    <li>🔒 Acceso restringido a los datos solo por personal autorizado (ingenieros y administradores).</li>
+                    <li>🔒 Auditorías periódicas de seguridad y cumplimiento.</li>
+                </ul>
+                <p>Sin embargo, ningún sistema de transmisión por Internet es 100% seguro. Si detectas una vulnerabilidad, por favor repórtala inmediatamente a <strong>seguridad@dapix.site.je</strong>.</p>
+
+                <h2>8. Transferencias Internacionales de Datos</h2>
+                <p>Algunos de nuestros proveedores de servicios (como servidores cloud, herramientas de analytics o plataformas de mensajería) pueden estar ubicados fuera de Colombia. En todos los casos, garantizamos que dichas transferencias internacionales se realizan bajo:</p>
+                <ul>
+                    <li>Decisiones de adecuación de la Comisión Europea (cuando aplique).</li>
+                    <li>Cláusulas Contractuales Tipo (SCC) aprobadas por la UE.</li>
+                    <li>Certificados Privacy Shield (para Estados Unidos, en su versión vigente).</li>
+                </ul>
+                <p>Puedes solicitar más información sobre las garantías aplicables escribiendo a nuestro Delegado de Protección de Datos (DPO).</p>
+
+                <h2>9. Menores de Edad</h2>
+                <p>Nuestros servicios están dirigidos exclusivamente a empresas y mayores de 18 años. No recopilamos conscientemente datos de menores de edad. Si eres padre/madre o tutor y crees que un menor nos ha proporcionado información, contáctanos para eliminarla de inmediato.</p>
+
+                <h2>10. Enlaces a Sitios de Terceros</h2>
+                <p>Nuestro sitio web puede contener enlaces a sitios externos (redes sociales, plataformas de pago, etc.). No somos responsables de las políticas de privacidad ni del contenido de dichos sitios. Te recomendamos leer sus políticas antes de proporcionarles tus datos.</p>
+
+                <h2>11. Modificaciones de la Política de Privacidad</h2>
+                <p>Nos reservamos el derecho a actualizar esta política para reflejar cambios en nuestras prácticas o en la normativa aplicable. Te notificaremos cualquier modificación sustancial mediante un aviso destacado en nuestro sitio web o por correo electrónico si disponemos del mismo. La fecha de la última actualización se indica al inicio de este documento.</p>
+
+                <h2>12. Delegado de Protección de Datos (DPO) y Contacto</h2>
+                <p>Si tienes preguntas, inquietudes o deseas presentar una reclamación relacionada con el tratamiento de tus datos personales, puedes contactar a nuestro Delegado de Protección de Datos:</p>
+                <ul>
+                    <li>📧 <strong>Email:</strong> dpo@dapix.site.je (o privacidad@dapix.site.je)</li>
+                    <li>📞 <strong>Teléfono:</strong> +57 316 300 2425</li>
+                    <li>📍 <strong>Dirección física:</strong> Cl 7 A Conj El Bosque CA 10, Villeta, Cundinamarca, Colombia</li>
+                </ul>
+                <p>También tienes derecho a presentar una queja ante la <strong>Superintendencia de Industria y Comercio (SIC)</strong> de Colombia si consideras que hemos vulnerado tus derechos.</p>
+
+                <div class="highlight-box">
+                    <p>📌 <strong>Aceptación de esta política:</strong> Al utilizar nuestro sitio web, enviar formularios o interactuar con nuestros agentes de IA, aceptas los términos de esta Política de Privacidad. Si no estás de acuerdo, por favor no uses nuestros servicios ni proporciones tus datos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>DAPIX<span>.</span></h4>
+                    <p>Líderes globales en optimización de procesos mediante agentes autónomos de Inteligencia Artificial.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Información Legal</h5>
+                    <ul style="gap: 6px;">
+                        <li style="color: #FFF; font-weight: 500;">Razón Social:</li>
+                        <li style="margin-bottom: 8px;">Duber Arcenio Pineda Ramirez</li>
+                        <li style="color: #FFF; font-weight: 500;">Dirección:</li>
+                        <li>Cl 7 A Conj El Bosque CA 10</li>
+                        <li>Villeta, Cundinamarca 253410</li>
+                        <li style="margin-bottom: 8px;">Colombia</li>
+                        <li style="color: #FFF; font-weight: 500;">Teléfono de la empresa:</li>
+                        <li>+57 316 300 2425</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Soluciones</h5>
+                    <ul>
+                        <li><a href="index.html#servicios">Agentes Conversacionales</a></li>
+                        <li><a href="index.html#servicios">Automatización CRM</a></li>
+                        <li><a href="index.html#servicios">Integraciones API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Compañía</h5>
+                    <ul>
+                        <li><a href="index.html#proceso">Metodología</a></li>
+                        <li><a href="index.html#casos">Casos de Éxito</a></li>
+                        <li><a href="index.html#contacto">Soporte Técnico</a></li>
+                        <li><a href="politicas-de-privacidad.html">Políticas de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DAPIX Automatizaciones. Todos los derechos reservados.</p>
+                <p>Diseño Web Profesional de Alto Rendimiento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú mobile (misma funcionalidad que el index)
+        const menuToggle = document.getElementById("mobile-menu");
+        const navList = document.getElementById("nav-list");
+        if (menuToggle) {
+            menuToggle.addEventListener("click", () => {
+                navList.classList.toggle("open");
+            });
+        }
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('open')) navList.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
