@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAPIX | Automatización Avanzada & Inteligencia Artificial Empresarial</title>
+    <meta name="description" content="Automatizamos tu negocio con Inteligencia Artificial. Agentes IA que venden, responden y gestionan procesos 24/7.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. CORE DESIGN TOKENS & VARIABLES (Futuristic Corporate Dark Theme)
+           ========================================================================== */
+        :root {
+            --bg-principal: #0B1220;
+            --bg-secundario: #111827;
+            --bg-terciario: #1F2937;
+            --color-primary: #0EA5E9;
+            --color-accent: #06B6D4;
+            --texto-principal: #FFFFFF;
+            --texto-mutado: #9CA3AF;
+            --font-main: 'Inter', sans-serif;
+            --transicion-suave: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --borde-futurista: rgba(255, 255, 255, 0.08);
+            --gradient-tech: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+
+        /* Reset global de alto rendimiento */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-principal); color: var(--texto-principal); }
+        body { font-family: var(--font-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        
+        /* Utilidades UX para escaneabilidad */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 100px 0; }
+        .tagline { display: inline-block; padding: 6px 16px; border-radius: 99px; background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.2); color: var(--color-primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+        .section-title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.2; text-align: center; }
+        .section-title span { background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-subtitle { font-size: 1.1rem; color: var(--texto-mutado); text-align: center; max-width: 600px; margin: 0 auto 60px auto; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: var(--transicion-suave); }
+        ul { list-style: none; }
+
+        /* Componentes Globales: Botones con Microinteracciones Premium */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-weight: 600; font-size: 0.95rem; border-radius: 8px; border: none; cursor: pointer; transition: var(--transicion-suave); gap: 10px; position: relative; overflow: hidden; }
+        .btn-primary { background: var(--gradient-tech); color: #FFF; box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--texto-principal); border: 1px solid var(--borde-futurista); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+
+        /* Efectos de Reveal en Scroll */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ==========================================================================
+           2. HEADER & NAVIGATION
+           ========================================================================== */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; transition: var(--transicion-suave); border-bottom: 1px solid transparent; }
+        header.scrolled { background: rgba(11, 18, 32, 0.85); backdrop-filter: blur(12px); padding: 14px 0; border-bottom: 1px solid var(--borde-futurista); }
+        .nav-wrapper { display: flex; align-items: center; justify-content: space-between; }
+        
+        /* Integración del Logo en el Header */
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(14, 165, 233, 0.4); }
+        .logo span { color: var(--color-primary); }
+        
+        .nav-menu { display: flex; gap: 32px; align-items: center; }
+        .nav-link { font-size: 0.9rem; font-weight: 500; color: var(--texto-mutado); }
+        .nav-link:hover { color: var(--texto-principal); }
+        .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .menu-toggle span { width: 25px; height: 2px; background: var(--texto-principal); transition: var(--transicion-suave); }
+
+        /* ==========================================================================
+           3. HERO PRINCIPAL WITH ENGINE ANIMATION BACKGROUND
+           ========================================================================== */
+        #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 100px; background-image: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%); }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .hero-content h2 { font-size: 3.8rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 24px; }
+        .hero-content h2 span { background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content p { font-size: 1.2rem; color: var(--texto-mutado); line-height: 1.6; margin-bottom: 40px; max-width: 580px; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        
+        /* Ilustración abstracta de IA interactiva */
+        .hero-visual { position: relative; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; }
+        .ai-core { width: 180px; height: 180px; background: var(--gradient-tech); border-radius: 50%; filter: blur(30px); opacity: 0.6; animation: float 6s ease-in-out infinite; }
+        .ai-ring { position: absolute; border: 2px dashed rgba(6, 182, 212, 0.3); border-radius: 50%; animation: rotate 20s linear infinite; }
+        .ring-1 { width: 280px; height: 280px; }
+        .ring-2 { width: 360px; height: 360px; animation-direction: reverse; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-15px) scale(1.05); } }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        /* ==========================================================================
+           4. SECCIÓN DE SERVICIOS (Grid UI de tarjetas Flotantes)
+           ========================================================================== */
+        #servicios { background-color: var(--bg-secundario); position: relative; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .service-card { background: var(--bg-terciario); border: 1px solid var(--borde-futurista); padding: 32px; border-radius: 12px; transition: var(--transicion-suave); position: relative; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; background: var(--gradient-tech); opacity: 0; transition: var(--transicion-suave); z-index: 1; pointer-events: none; }
+        .service-card:hover { transform: translateY(-6px); border-color: rgba(14, 165, 233, 0.4); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+        .service-card:hover::before { opacity: 0.03; }
+        .icon-container { width: 48px; height: 48px; border-radius: 8px; background: rgba(14, 165, 233, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--color-primary); font-size: 1.5rem; font-weight: bold; }
+        .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .service-card p { color: var(--texto-mutado); font-size: 0.95rem; line-height: 1.6; }
+
+        /* ==========================================================================
+           5. BENEFICIOS Y ESTADÍSTICAS ANIMADAS VIA JS
+           ========================================================================== */
+        #beneficios { background: var(--bg-principal); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; text-align: center; }
+        .stat-item { background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%); padding: 40px 24px; border-radius: 12px; border: 1px solid var(--borde-futurista); }
+        .stat-number { font-size: 3.5rem; font-weight: 800; background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; display: block; }
+        .stat-label { font-size: 1rem; color: var(--texto-mutado); font-weight: 500; }
+
+        /* ==========================================================================
+           6. CÓMO FUNCIONA (Timeline Arquitectónico)
+           ========================================================================== */
+        #proceso { background: var(--bg-secundario); }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 8px; width: 2px; height: 100%; background: var(--borde-futurista); }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot { position: absolute; left: -29px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary); border: 3px solid var(--bg-secundario); box-shadow: 0 0 10px var(--color-primary); }
+        .timeline-content { background: var(--bg-terciario); padding: 24px 32px; border-radius: 10px; border: 1px solid var(--borde-futurista); }
+        .timeline-step { font-size: 0.8rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; display: block; }
+        .timeline-content h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .timeline-content p { color: var(--texto-mutado); font-size: 0.95rem; line-height: 1.5; }
+
+        /* ==========================================================================
+           7. INTEGRACIONES & LOGOS HUB
+           ========================================================================== */
+        .integrations-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 900px; margin: 0 auto; }
+        .integration-badge { padding: 12px 24px; background: var(--bg-terciario); border: 1px solid var(--borde-futurista); border-radius: 8px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .integration-badge span { color: var(--color-accent); }
+
+        /* ==========================================================================
+           8. CASOS DE USO Y SECTORES
+           ========================================================================== */
+        #casos { background: var(--bg-secundario); }
+        .casos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .caso-card { background: var(--bg-principal); border-radius: 12px; border: 1px solid var(--borde-futurista); overflow: hidden; transition: var(--transicion-suave); }
+        .caso-card:hover { border-color: var(--color-accent); transform: scale(1.02); }
+        .caso-header { padding: 20px 24px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--borde-futurista); font-weight: 700; color: var(--color-primary); }
+        .caso-body { padding: 24px; }
+        .caso-body p { font-size: 0.95rem; line-height: 1.6; color: var(--texto-mutado); }
+
+        /* ==========================================================================
+           9. TESTIMONIOS (Carrusel Automatizado Robusto)
+           ========================================================================== */
+        .carousel-container { max-width: 750px; margin: 0 auto; position: relative; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .testimonial-slide { min-width: 100%; padding: 20px; box-sizing: border-box; }
+        .testimonial-card { background: var(--bg-terciario); border: 1px solid var(--borde-futurista); padding: 40px; border-radius: 16px; text-align: center; }
+        .testimonial-text { font-size: 1.15rem; font-style: italic; line-height: 1.7; margin-bottom: 24px; color: #E5E7EB; }
+        .testimonial-author { font-weight: 700; font-size: 1rem; color: var(--color-primary); }
+        .testimonial-company { font-size: 0.85rem; color: var(--texto-mutado); margin-top: 4px; }
+
+        /* ==========================================================================
+           10. PREGUNTAS FRECUENTES (FAQ Accordeon Limpio)
+           ========================================================================== */
+        #faq { background: var(--bg-secundario); }
+        .faq-wrapper { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+        .faq-item { background: var(--bg-terciario); border: 1px solid var(--borde-futurista); border-radius: 8px; overflow: hidden; transition: var(--transicion-suave); }
+        .faq-question { padding: 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 1.05rem; }
+        .faq-icon { transition: var(--transicion-suave); font-weight: bold; color: var(--color-primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; color: var(--texto-mutado); font-size: 0.95rem; line-height: 1.6; padding: 0 24px; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--color-accent); }
+        .faq-item.active .faq-answer { padding-bottom: 24px; }
+
+        /* ==========================================================================
+           11. CONTACTO Y VALIDACIÓN DE FORMULARIO PREMIUM
+           ========================================================================== */
+        .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; }
+        .contact-info h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; }
+        .contact-info p { color: var(--texto-mutado); line-height: 1.6; margin-bottom: 30px; }
+        .info-link { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-weight: 500; }
+        .info-link span { color: var(--color-primary); font-weight: bold; }
+        
+        .contact-form-wrapper { background: var(--bg-terciario); padding: 40px; border-radius: 12px; border: 1px solid var(--borde-futurista); }
+        .form-group { margin-bottom: 20px; position: relative; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; tracking: 0.05em; margin-bottom: 8px; color: var(--texto-mutated); }
+        .form-input { width: 100%; background: var(--bg-principal); border: 1px solid var(--borde-futurista); padding: 14px 16px; border-radius: 6px; color: #FFF; font-family: var(--font-main); font-size: 0.95rem; transition: var(--transicion-suave); }
+        .form-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); }
+        textarea.form-input { resize: vertical; min-height: 120px; }
+        .error-msg { font-size: 0.8rem; color: #EF4444; margin-top: 4px; display: none; }
+
+        /* ==========================================================================
+           12. FOOTER & COMPLEMENTOS ACCESIBILIDAD
+           ========================================================================== */
+        footer { background: #060B13; padding: 60px 0 30px 0; border-top: 1px solid var(--borde-futurista); font-size: 0.9rem; color: var(--texto-mutado); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-brand h4 { font-size: 1.4rem; font-weight: 800; color: #FFF; margin-bottom: 16px; }
+        .footer-links h5 { color: #FFF; font-weight: 600; margin-bottom: 16px; font-size: 0.95rem; }
+        .footer-links ul { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a:hover { color: #FFF; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+        /* ==========================================================================
+           13. BOTONES FLOTANTES AL LADO DERECHO (DESINCRONIZADOS)
+           ========================================================================== */
+        .wsp-float { 
+            position: fixed; 
+            bottom: 96px; 
+            right: 24px; 
+            background: #25D366; 
+            color: white; 
+            width: 56px; 
+            height: 56px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); 
+            z-index: 998; 
+            transition: var(--transicion-suave);
+            animation: float-wsp 3.5s ease-in-out infinite; 
+        }
+        .wsp-float:hover { transform: scale(1.1) rotate(8deg); }
+        .wsp-float svg { width: 30px; height: 30px; fill: currentColor; }
+
+        .chat-launcher { 
+            position: fixed; 
+            bottom: 24px; 
+            right: 24px; 
+            background: var(--gradient-tech); 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            width: 56px; 
+            height: 56px; 
+            cursor: pointer; 
+            z-index: 9999; 
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4); 
+            transition: var(--transicion-suave); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            animation: float-chat 4.2s ease-in-out infinite; 
+        }
+        .chat-launcher:hover { transform: scale(1.1); }
+        .chat-launcher svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        
+        .chat-window { 
+            position: fixed; 
+            bottom: 95px; 
+            right: 24px; 
+            width: 350px; 
+            height: 480px; 
+            background: var(--bg-secundario); 
+            border: 1px solid var(--borde-futurista); 
+            border-radius: 16px; 
+            display: none; 
+            flex-direction: column; 
+            z-index: 9999; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+            overflow: hidden; 
+            transition: var(--transicion-suave); 
+        }
+        
+        .chat-header { background: var(--bg-terciario); padding: 14px 16px; border-bottom: 1px solid var(--borde-futurista); display: flex; justify-content: space-between; align-items: center; }
+        .chat-header-profile { display: flex; align-items: center; gap: 10px; }
+        .chat-header-profile img { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 165, 233, 0.3); object-fit: cover; }
+        .chat-header-info h4 { font-size: 0.9rem; font-weight: 700; color: #FFF; display: flex; align-items: center; gap: 6px; }
+        .chat-status-dot { width: 8px; height: 8px; background: #25D366; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #25D366; }
+        .chat-header-info span { font-size: 0.75rem; color: var(--texto-mutado); display: block; }
+        
+        .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem; background: #0c1424; }
+        .msg { padding: 10px 14px; border-radius: 12px; max-width: 82%; line-height: 1.45; word-wrap: break-word; }
+        .msg-bot { background: var(--bg-terciario); color: var(--texto-principal); align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid var(--borde-futurista); }
+        .msg-user { background: var(--color-primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        
+        .chat-footer { padding: 12px; background: var(--bg-terciario); border-top: 1px solid var(--borde-futurista); display: flex; gap: 8px; align-items: center; }
+        .chat-input { flex: 1; background: var(--bg-principal); border: 1px solid var(--borde-futurista); padding: 12px 14px; border-radius: 8px; color: white; outline: none; font-family: var(--font-main); font-size: 0.9rem; transition: var(--transicion-suave); }
+        .chat-input:focus { border-color: var(--color-primary); }
+        .chat-send { background: var(--gradient-tech); border: none; color: white; padding: 12px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.9rem; transition: var(--transicion-suave); }
+        .chat-send:hover { opacity: 0.9; }
+
+        @keyframes float-wsp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes float-chat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* ==========================================================================
+           14. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 968px) {
+            .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero-content { text-align: center; }
+            .hero-content h2 { font-size: 2.6rem; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { height: 250px; margin-top: 20px; }
+            .ring-2 { width: 280px; height: 280px; }
+            .section-title { font-size: 2rem; }
+            .menu-toggle { display: flex; }
+            .nav-menu { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-principal); padding: 30px; flex-direction: column; gap: 20px; border-bottom: 1px solid var(--borde-futurista); display: none; }
+            .nav-menu.open { display: flex; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .chat-window { width: calc(100% - 48px); bottom: 90px; right: 24px; left: 24px; height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <img src="foto perfil.png" alt="Logo Oficial DAPIX"> DAPIX<span>.</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                <li><a href="#proceso" class="nav-link">Proceso</a></li>
+                <li><a href="#casos" class="nav-link">Casos de Uso</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contacto" class="btn btn-secondary" style="padding: 10px 20px;">Soporte</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="tagline">Ecosistema IA de Última Generación</span>
+                <h2>Automatizamos tu negocio con <span>Inteligencia Artificial</span></h2>
+                <p>Agentes IA que venden, responden clientes, gestionan citas y trabajan 24/7 para aumentar tus ingresos y escalar tus operaciones masivamente.</p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary">Solicitar Demo</a>
+                    <a href="https://wa.me/573123495440" target="_blank" class="btn btn-secondary">⚡ Hablar por WhatsApp</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ai-core"></div>
+                <div class="ai-ring ring-1"></div>
+                <div class="ai-ring ring-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding">
+        <div class="container">
+            <span class="tagline" style="margin: 0 auto 16px auto; display: table;">Capacidades de Vanguardia</span>
+            <h2 class="section-title">Infraestructura de <span>Servicios Especializados</span></h2>
+            <p class="section-subtitle">Soluciones modulares diseñadas para delegar tareas complejas a sistemas automatizados robustos.</p>
+            
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="icon-container">🤖</div>
+                    <h3>Agente de Ventas IA</h3>
+                    <p>Modelos entrenados para calificar prospectos, rebatir objeciones y cerrar transacciones comerciales de forma independiente.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">💬</div>
+                    <h3>Atención al Cliente</h3>
+                    <p>Soporte técnico y respuestas instantáneas multi-idioma con integración contextual de tu base de conocimiento corporativa.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">🔗</div>
+                    <h3>Automatización WhatsApp</h3>
+                    <p>Flujos masivos oficiales a través de API para envío de notificaciones, confirmaciones de pago y carritos abandonados.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">✈️</div>
+                    <h3>Automatización Telegram</h3>
+                    <p>Canales, bots interactivos y comunidades autogestionadas con pasarelas de pago integradas nativamente.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">📷</div>
+                    <h3>Automatización Instagram</h3>
+                    <p>Respuestas automáticas a menciones, comentarios en posts y mensajes directos basados en triggers clave de compra.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">👥</div>
+                    <h3>Automatización Facebook</h3>
+                    <p>Optimización y respuestas automáticas vía Messenger ligadas directamente a tus campañas publicitarias de Meta Ads.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">📅</div>
+                    <h3>Agendamiento de Citas</h3>
+                    <p>Sincronización de calendarios bidireccional inteligente sin fricción de usuario y envío automático de recordatorios preventivos.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">🧠</div>
+                    <h3>CRM Inteligente</h3>
+                    <p>Asignación, etiquetado y actualización automática del pipeline de prospectos basado en el comportamiento del usuario.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">⚙️</div>
+                    <h3>Automatización de Procesos</h3>
+                    <p>Modelos RPA encargados de mover información confidencial entre aplicativos y ERPs sin cometer errores humanos.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-container">📊</div>
+                    <h3>Análisis de Datos con IA</h3>
+                    <p>Cuadros de mando predictivos que identifican cuellos de botella operativos y proyectan tendencias financieras automáticamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="section-padding">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="70">%</span>
+                    <span class="stat-label">Reducción de Time Poerativo</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="45">%</span>
+                    <span class="stat-label">Incremento en Conversión</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">/7</span>
+                    <span class="stat-label">Disponibilidad Absoluta</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">%</span>
+                    <span class="stat-label">Automatización Repetitiva</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Metodología de <span>Despliegue</span></h2>
+            <p class="section-subtitle">Acompañamiento e ingeniería ágil para integrar IA en tu arquitectura actual de software.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-step">Fase 01</span>
+                        <h3>Analizamos tu negocio</h3>
+                        <p>Auditoría profunda de tus flujos de trabajo actuales e identificación exacta de los cuellos de botella que te hacen perder dinero.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-step">Fase 02</span>
+                        <h3>Diseñamos la automatización</h3>
+                        <p>Creación del mapa lógico y selección crítica del stack de Inteligencia Artificial que mejor se adapte a tu ecosistema corporativo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-step">Fase 03</span>
+                        <h3>Implementamos IA</h3>
+                        <p>Desarrollo, entrenamiento de prompts, conexión de Webhooks y despliegue del sistema sin interrumpir tus operaciones activas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-step">Fase 04</span>
+                        <h3>Escalamos resultados</h3>
+                        <p>Monitoreo de logs, optimización continua mediante análisis de analítica y escalado vertical para maximizar tus retornos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Ecosistema <span>Conectado</span></h2>
+            <p class="section-subtitle">Nos integramos de forma nativa con las herramientas de software líderes del mercado global.</p>
+            <div class="integrations-grid">
+                <div class="integration-badge"><span>●</span> WhatsApp Business API</div>
+                <div class="integration-badge"><span>●</span> Telegram Server</div>
+                <div class="integration-badge"><span>●</span> Instagram Cloud</div>
+                <div class="integration-badge"><span>●</span> Meta Graph API</div>
+                <div class="integration-badge"><span>●</span> Google Calendar</div>
+                <div class="integration-badge"><span>●</span> Google Sheets</div>
+                <div class="integration-badge"><span>●</span> Hubspot & Salesforce CRM</div>
+                <div class="integration-badge"><span>●</span> Protocolos SMTP / Email</div>
+                <div class="integration-badge"><span>●</span> Webhooks & Rest APIs</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Impacto por <span>Sectores</span></h2>
+            <p class="section-subtitle">Aplicabilidad práctica y transformación digital adaptada a diferentes industrias.</p>
+            
+            <div class="casos-grid">
+                <div class="caso-card reveal">
+                    <div class="caso-header">Sector Salud & Clínicas</div>
+                    <div class="caso-body">
+                        <p>Agendamiento automatizado de citas médicas, validación instantánea de coberturas de seguros y envío de alertas de tratamientos post-consulta.</p>
+                    </div>
+                </div>
+                <div class="caso-card reveal">
+                    <div class="caso-header">Inmobiliarias & Proptech</div>
+                    <div class="caso-body">
+                        <p>Filtrado inteligente de leads compradores, envío automatizado de catálogos personalizados vía WhatsApp y agendamiento directo de visitas físicas.</p>
+                    </div>
+                </div>
+                <div class="caso-card reveal">
+                    <div class="caso-header">E-commerce & Retail</div>
+                    <div class="caso-body">
+                        <p>Resolución inmediata de estatus de envíos, recomendaciones predictivas de productos cruzados y recuperación automatizada de compras inconclusas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Resultados de <span>Líderes</span></h2>
+            <p class="section-subtitle">Empresas que han transformado sus departamentos gracias a la ingeniería de DAPIX.</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Redujimos los costos de soporte en un 65% en los primeros tres meses. Los agentes IA de DAPIX responden con una naturalidad y precisión técnica asombrosa."</p>
+                            <div class="testimonial-author">Director de Operaciones</div>
+                            <div class="testimonial-company">Fintech Internacional</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"La automatización del embudo de WhatsApp nos permitió procesar más de 5,000 solicitudes diarias de leads cualificados sin aumentar la nómina del equipo comercial."</p>
+                            <div class="testimonial-author">Directora de Marketing</div>
+                            <div class="testimonial-company">SaaS Corporativo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
+            <p class="section-subtitle">Resolvemos de forma clara las inquietudes técnicas más comunes sobre nuestra tecnología.</p>
+            
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <div class="faq-question">¿La integración requiere interrumpir nuestros sistemas actuales? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">No. Trabajamos mediante capas de API y conexiones de Webhooks externas, lo que nos permite implementar la IA de manera paralela sin alterar la estabilidad de tu infraestructura actual.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo se garantiza la seguridad de la información de los clientes? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Toda la transferencia de datos se realiza bajo protocolos estrictos de encriptación SSL y cumplimos con los estándares internacionales de protección de datos de las APIs oficiales que conectamos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Los agentes de IA pueden cometer errores o alucinar datos? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Nuestros modelos son acotados estrictamente mediante arquitecturas RAG (Generación Aumentada por Recuperación) y bases de datos cerradas, asegurando que solo respondan con datos corporativos verificados.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <span class="tagline">Hablemos Hoy</span>
+                <h3>Inicia la Transformación Digital de tu Compañía</h3>
+                <p>Agenda una sesión estratégica personalizada con uno de nuestros ingenieros de soluciones para expresar un MVP adaptado a tus necesidades.</p>
+                <div class="info-link"><span>📍</span> Sedes Físicas: Bogotá y Villeta, Cundinamarca</div>
+                <div class="info-link"><span>📞</span> Contacto Directo: +57 312 349 5440</div>
+                <div class="info-link"><span>✉️</span> Canal Oficial: admin@dapix.site.je</div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form id="dapix-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label">Nombre Completo</label>
+                        <input type="text" id="nombre" class="form-input" placeholder="Ej. Arcenio Duber">
+                        <div class="error-msg" id="error-nombre">Este campo es obligatorio y requiere un nombre válido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Empresa</label>
+                        <input type="text" id="empresa" class="form-input" placeholder="Nombre de tu organización">
+                        <div class="error-msg" id="error-empresa">Por favor especifica el nombre de tu empresa.</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Teléfono Corporativo</label>
+                        <input type="tel" id="telefono" class="form-input" placeholder="Ej. +57 300 000 0000">
+                        <div class="error-msg" id="error-telefono">Ingresa un número de contacto válido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-input" placeholder="ejemplo@empresa.com">
+                        <div class="error-msg" id="error-email">Ingresa una dirección de correo corporativo válida.</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mensaje / Requerimiento Técnico</label>
+                        <textarea id="mensaje" class="form-input" placeholder="Describe brevemente qué procesos deseas automatizar..."></textarea>
+                        <div class="error-msg" id="error-mensaje">El mensaje debe tener al menos 15 caracteres.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Asesoría</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>DAPIX<span>.</span></h4>
+                    <p>Líderes globales en optimización de procesos mediante agentes autónomos de Inteligencia Artificial.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Información Legal</h5>
+                    <ul style="gap: 6px;">
+                        <li style="color: #FFF; font-weight: 500;">Razón Social:</li>
+                        <li style="margin-bottom: 8px;">Duber Arcenio Pineda Ramirez</li>
+                        <li style="color: #FFF; font-weight: 500;">Dirección:</li>
+                        <li>Cl 7 A Conj El Bosque CA 10</li>
+                        <li>Villeta, Cundinamarca 253410</li>
+                        <li style="margin-bottom: 8px;">Colombia</li>
+                        <li style="color: #FFF; font-weight: 500;">Teléfono de la empresa:</li>
+                        <li style="margin-bottom: 8px;">+57 316 300 2425</li>
+                        <li><a href="https://dapix.site.je/politicas-de-privacidad.html" target="_blank" style="color: var(--color-accent); font-weight: 600;">Políticas de Privacidad ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Soluciones</h5>
+                    <ul>
+                        <li><a href="#servicios">Agentes Conversacionales</a></li>
+                        <li><a href="#servicios">Automatización CRM</a></li>
+                        <li><a href="#servicios">Integraciones API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Compañía</h5>
+                    <ul>
+                        <li><a href="#proceso">Metodología</a></li>
+                        <li><a href="#casos">Cases de Éxito</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DAPIX Automatizaciones. Todos los derechos reservados.</p>
+                <p>Diseño Web Profesional de Alto Rendimiento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573123495440" class="wsp-float" target="_blank" aria-label="Contacto directo por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.83.001-2.624-1.023-5.091-2.884-6.953C16.58 1.95 14.114.925 11.5.924c-5.445 0-9.871 4.414-9.875 9.833-.001 1.698.443 3.356 1.286 4.817l-.97 3.546 3.633-.953zm11.393-7.514c-.266-.134-1.579-.78-1.823-.867-.243-.088-.419-.133-.596.134-.176.265-.683.865-.838 1.042-.155.176-.311.199-.577.066-.266-.134-1.123-.414-2.14-1.322-.792-.707-1.327-1.58-1.482-1.847-.155-.266-.017-.411.116-.543.12-.12.266-.31.399-.464.133-.155.177-.266.266-.443.089-.176.044-.332-.022-.464-.067-.133-.596-1.437-.817-1.97-.215-.518-.432-.448-.596-.456-.153-.008-.33-.01-.508-.01-.177 0-.464.067-.707.331-.243.265-.929.907-.929 2.213s.951 2.569 1.084 2.746c.133.177 1.87 2.854 4.529 4.004.633.274 1.127.438 1.512.56.636.202 1.214.174 1.672.106.509-.076 1.579-.645 1.802-1.267.221-.621.221-1.152.155-1.266-.066-.113-.242-.177-.508-.31z"/>
+        </svg>
+    </a>
+
+    <button class="chat-launcher" id="chatLauncher" aria-label="Abrir Chat de Soporte IA">
+        <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-profile">
+                <img src="foto perfil.png" alt="Avatar IA DAPIX"> 
+                <div class="chat-header-info">
+                    <h4>DAPIX Bot Local <span class="chat-status-dot"></span></h4>
+                    <span>Agente Autónomo En Línea</span>
+                </div>
+            </div>
+            <button id="closeChat" style="background:none; border:none; color:white; cursor:pointer; font-weight:bold; font-size:1.1rem;">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">¡Hola! Soy el agente de inteligencia artificial de DAPIX. Estoy conectado por WebSockets directos a tu servidor local en Node.js. Pregúntame sobre "precios" o "WhatsApp" para ver cómo proceso y automatizo respuestas en vivo.</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Escribe un mensaje para el Agente IA...">
+            <button class="chat-send" id="chatSend">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // A. Interacción Efecto Scroll Header
+            const header = document.getElementById("main-header");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // B. Menu Mobile Toggle
+            const menuToggle = document.getElementById("mobile-menu");
+            const navList = document.getElementById("nav-list");
+            menuToggle.addEventListener("click", () => {
+                navList.classList.toggle("open");
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => navList.classList.remove('open'));
+            });
+
+            // C. Scroll Reveal Engine (Intersection Observer API)
+            const revealElements = document.querySelectorAll(".reveal");
+            const observerOptions = { root: null, threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // D. Animación de Contadores Estadísticos Numéricos
+            const statNumbers = document.querySelectorAll(".stat-number");
+            const animateCounters = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const targetValue = parseInt(target.getAttribute("data-target"), 10);
+                        const suffix = target.textContent;
+                        let start = 0;
+                        const duration = 2000;
+                        const stepTime = Math.abs(Math.floor(duration / targetValue));
+                        
+                        const timer = setInterval(() => {
+                            start += 1;
+                            target.innerHTML = start + `<span style="font-size:1.5rem; vertical-align:middle;">${suffix}</span>`;
+                            if (start === targetValue) {
+                                clearInterval(timer);
+                            }
+                        }, stepTime);
+                        observer.unobserve(target);
+                    }
+                });
+            };
+            const statsObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+            statNumbers.forEach(num => statsObserver.observe(num));
+
+            // E. Carrusel Automático de Testimonios
+            const track = document.getElementById("track");
+            let currentIndex = 0;
+            const totalSlides = document.querySelectorAll(".testimonial-slide").length;
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 6000);
+
+            // F. Acordeón Desplegable FAQ
+            const faqItems = document.querySelectorAll(".faq-item");
+            faqItems.forEach(item => {
+                const question = item.querySelector(".faq-question");
+                question.addEventListener("click", () => {
+                    const currentActive = document.querySelector(".faq-item.active");
+                    if (currentActive && currentActive !== item) {
+                        currentActive.classList.remove("active");
+                        currentActive.querySelector(".faq-answer").style.maxHeight = null;
+                    }
+                    item.classList.toggle("active");
+                    const answer = item.querySelector(".faq-answer");
+                    if (item.classList.contains("active")) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // G. LÓGICA DE CONTROL DEL COMPONENTE AGENTE CHAT (WebSockets con Ngrok)
+            const chatLauncher = document.getElementById("chatLauncher");
+            const chatWindow = document.getElementById("chatWindow");
+            const closeChat = document.getElementById("closeChat");
+            const chatMessages = document.getElementById("chatMessages");
+            const chatInput = document.getElementById("chatInput");
+            const chatSend = document.getElementById("chatSend");
+
+            chatLauncher.addEventListener("click", () => chatWindow.style.display = "flex");
+            closeChat.addEventListener("click", () => chatWindow.style.display = "none");
+
+            const socket = new WebSocket("wss://referable-laborious-shore.ngrok-free.dev");
+
+            socket.onopen = () => {
+                console.log("🚀 Canal de comunicación activo. Conectado al backend local de DAPIX.");
+            };
+
+            socket.onmessage = (event) => {
+                appendChatMessage(event.data, "bot");
+            };
+
+            socket.onerror = (err) => {
+                console.error("Fallo de sincronización WebSocket:", err);
+            };
+
+            function appendChatMessage(text, sender) {
+                const msgDiv = document.createElement("div");
+                msgDiv.classList.add("msg", sender === "user" ? "msg-user" : "msg-bot");
+                msgDiv.textContent = text;
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function procesarEnvioChat() {
+                const textoInput = chatInput.value.trim();
+                if (textoInput === "") return;
+
+                appendChatMessage(textoInput, "user");
+                socket.send(textoInput);
+                chatInput.value = "";
+            }
+
+            chatSend.addEventListener("click", procesarEnvioChat);
+            chatInput.addEventListener("keypress", (e) => { if(e.key === "Enter") procesarEnvioChat(); });
+
+            // H. Motor de Validación de Formulario Corporativo (Sección de Contacto)
+            const form = document.getElementById("dapix-form");
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                const nombre = document.getElementById("nombre");
+                const empresa = document.getElementById("empresa");
+                const telefono = document.getElementById("telefono");
+                const email = document.getElementById("email");
+                const mensaje = document.getElementById("mensaje");
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (nombre.value.trim().length < 3) {
+                    document.getElementById("error-nombre").style.display = "block";
+                    isValid = false;
+                } else { document.getElementById("error-nombre").style.display = "none"; }
+
+                if (empresa.value.trim().length < 2) {
+                    document.getElementById("error-empresa").style.display = "block";
+                    isValid = false;
+                } else { document.getElementById("error-empresa").style.display = "none"; }
+
+                if (telefono.value.trim().length < 7) {
+                    document.getElementById("error-telefono").style.display = "block";
+                    isValid = false;
+                } else { document.getElementById("error-telefono").style.display = "none"; }
+
+                if (!emailRegex.test(email.value.trim())) {
+                    document.getElementById("error-email").style.display = "block";
+                    isValid = false;
+                } else { document.getElementById("error-email").style.display = "none"; }
+
+                if (mensaje.value.trim().length < 15) {
+                    document.getElementById("error-mensaje").style.display = "block";
+                    isValid = false;
+                } else { document.getElementById("error-mensaje").style.display = "none"; }
+
+                if (isValid) {
+                    alert("⚠️ Simulación de envío: Datos validados con arquitectura Front-End exitosa. ¡Tu solicitud en DAPIX ha sido procesada!");
+                    form.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
